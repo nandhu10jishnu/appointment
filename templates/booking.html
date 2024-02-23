@@ -1,0 +1,45 @@
+ {% extends 'base.html' %}
+
+{% block title %}
+Booking
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Make An Appointment</h1>
+    <hr>
+    <div class="container w-50 text-center p-3 my-5 bg-info">
+        <form action="" method="post">
+            {% csrf_token %}
+            
+            <!-- Add Bootstrap 4 form-control classes directly to each form field -->
+            <div class="form-group">
+                {{ form.p_name.label_tag }}
+                {{ form.p_name }}
+            </div>
+
+            <div class="form-group">
+                {{ form.p_phone.label_tag }}
+                {{ form.p_phone }}
+            </div>
+
+            <div class="form-group">
+                {{ form.p_email.label_tag }}
+                {{ form.p_email }}
+            </div>
+
+            <div class="form-group">
+                {{ form.doc_name.label_tag }}
+                {{ form.doc_name }}
+            </div>
+
+            <div class="form-group">
+                {{ form.booking_date.label_tag }}
+                {{ form.booking_date }}
+            </div>
+
+            <button class="btn btn-primary mb-4" type="submit">Submit</button>
+        </form>
+    </div>
+{% endblock %}
+
+ 

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Appointment
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2>Appointment List</h2>
+
+    <form method="get" action="" class="mb-4">
+      <div class="row">
+        <div class="col-md-4">
+          <label for="name" class="form-label">Name:</label>
+          <input type="text" class="form-control" name="p_name" value="{{ request.GET.p_name }}">
+        </div>
+        <div class="col-md-4">
+          <label for="phone" class="form-label">Phone:</label>
+          <input type="text" class="form-control" name="p_phone" value="{{ request.GET.p_phone }}">
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-primary mt-4" type="submit">Submit</button>
+        </div>
+      </div>
+    </form>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>DocName</th>
+          <th>Booking Date</th>
+          <th>Booked On</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for booking in bookings %}
+          <tr>
+            <td>{{ booking.p_name }}</td>
+            <td>{{ booking.p_phone }}</td>
+            <td>{{ booking.p_email }}</td>
+            <td>{{ booking.doc_name }}</td>
+            <td>{{ booking.booking_date }}</td>
+            <td>{{ booking.booked_on }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
